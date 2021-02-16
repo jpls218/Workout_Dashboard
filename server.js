@@ -14,7 +14,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 Mongoose.connect(
-    process.env.MONGODB_URI || 'mongodb://localhost/workouts',
+    process.env.MONGODB_URI || 'mongodb://localhost/workout',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -22,7 +22,10 @@ Mongoose.connect(
       useFindAndModify: false
     }
   );
-
+// Mongoose.connect("mongodb://localhost/workout", {
+//     useNewUrlParser: true,
+//     useFindAndModify: false
+// });
 
 
 app.use(require("./routes/apiRoutes"))
