@@ -50,8 +50,8 @@ router.post('/api/workouts', (req, res) => {
 
 router.get('/api/workouts/range', (req, res) => {
     Workout.aggregate([
-        {$addFields: {totalDuration: {$sum: "$exercises.duration"}}}
-    ]).limit(7)
+        {$addFields: {totalDuration: {$sum: "$exercises.duration"}}}  
+        ]).sort({day: -1}).limit(7)
     .then(data => {
       res.json(data);
     })
